@@ -1,0 +1,27 @@
+.player{
+    width: 100px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;}
+
+.shot{
+    width: 30px;
+    height: 30px;
+    background: rgb(70, 90, 29);
+    position: absolute;
+    content: '$';
+    color: black;
+    border-radius: 50%;
+}
+
+.cat{
+   width: 100px;
+}
+
+.cat img{
+    width: 100%;
+}
