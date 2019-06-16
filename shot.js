@@ -13,10 +13,17 @@ Shot.prototype.move = function () {
         return;
     }
     this.newShot.style.top = this.newShot.offsetTop - 10 + "px";
-    if (this.newShot.offsetTop < 0) {
-        clearInterval(this.interval);
-        document.body.removeChild(this.newShot);
+    this.y = this.newShot.offsetTop - 10;
+    if (this.newShot.offsetTop < 0 || this.checkHit()) {
+        this.destroy();
     }
+}
+
+Shot.prototype.checkHit = function () {
+    return window.cat.getLocation().x - 5 <= this.x && 
+    window.cat.getLocation().x + window.cat.getSize().width >= this.x &&
+    window.cat.getLocation().y + window.cat.getSize().height <= this.y+5&&
+    window.cat.getLocation().y + window.cat.getSize().height >= this.y-5;
 }
 
 Shot.prototype.create = function () {
@@ -24,6 +31,13 @@ Shot.prototype.create = function () {
     newDiv.setAttribute("class", "shot");
     newDiv.style.top = this.y + "px";
     this.newShot = document.body.appendChild(newDiv);
-    newDiv.style.left = this.x + this.elmWidth - (this.newShot.offsetWidth / 2) + "px";
+    this.x = this.x + this.elmWidth - (this.newShot.offsetWidth / 2);
+    newDiv.style.left = this.x  + "px";
     this.interval = setInterval(this.move.bind(this), 50);
+}
+
+Shot.prototype.destroy = function(){
+    clearInterval(this.interval);
+    document.body.removeChild(this.newShot);
+
 }
