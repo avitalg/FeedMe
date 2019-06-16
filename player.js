@@ -19,7 +19,7 @@ Player.prototype.createBoard = function(){
 
 Player.prototype.updateScore = function(newPoints){
     this.points += newPoints;
-    this.score.textContent = "Points: " + this.points;
+    this.score.textContent = "Points : " + this.points;
 }
 
 Player.prototype.locate = function (x, y) {

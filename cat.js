@@ -8,24 +8,25 @@ function Cat(name){
 Cat.prototype = Object.create(Player.prototype);
 Cat.prototype.constructur = Cat;
 
+Cat.prototype.ramdomImg = function(){
+    var imgs = ['cat_dance.gif'];
+    return imgs[ Math.floor(Math.random() * 0)];
+}
+
 Cat.prototype.create = function () {
     var player = document.createElement("div");
     var img = document.createElement("img");
     img.src = "cat_dance.gif";
     player.appendChild(img);
     player.setAttribute("class", "cat");
+    this.catSrc = img;
     this.elm = document.body.appendChild(player);
     setInterval(this.setLocation.bind(this), 10000);
 };
 
 Cat.prototype.setLocation = function(){
+    this.catSrc.src= this.ramdomImg();
     this.locate(Math.floor(Math.random() * innerWidth), Math.floor(Math.random() * innerHeight));
-    console.log("location changed");
-
-}
-
-Cat.prototype.destroy = function(){
-    document.body.removeChild(this.elm);
 }
 
 Cat.prototype.getLocation = function() {
@@ -34,4 +35,8 @@ Cat.prototype.getLocation = function() {
 
 Cat.prototype.getSize = function(){
     return {width: this.elm.offsetWidth, height: this.elm.offsetHeight};
+}
+
+Cat.prototype.destroy = function(){
+    document.body.removeChild(this.elm);
 }

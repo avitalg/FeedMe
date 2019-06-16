@@ -1,4 +1,8 @@
-.player{
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.player {
     width: 100px;
     height: 60px;
     position: absolute;
@@ -6,9 +10,18 @@
     left: 0;
     background: black;
     border-top-left-radius: 10px;
-    border-top-right-radius: 10px;}
+    border-top-right-radius: 10px;
+}
 
-.shot{
+h1{
+    text-align: center;
+}
+
+.scores{
+    font-weight: 700;
+}
+
+.shot {
     width: 30px;
     height: 30px;
     background: rgb(70, 90, 29);
@@ -18,11 +31,11 @@
     border-radius: 50%;
 }
 
-.cat{
-   width: 200px;
-   position: absolute;
+.cat {
+    width: 200px;
+    position: absolute;
 }
 
-.cat img{
+.cat img {
     width: 100%;
 }
