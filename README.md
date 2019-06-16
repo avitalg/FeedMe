@@ -1,5 +1,5 @@
 # FeedMe
 
-![feedme](https://imgur.com/hLhz04g)
+![feedme](https://i.ibb.co/6HQphqg/feedcat.png)
 
 A small fun game in which you should feed the hangry cat
