@@ -9,14 +9,14 @@ Cat.prototype = Object.create(Player.prototype);
 Cat.prototype.constructur = Cat;
 
 Cat.prototype.ramdomImg = function(){
-    var imgs = ['cat_dance.gif'];
+    var imgs = ['imgs/cat_dance.gif'];
     return imgs[ Math.floor(Math.random() * 0)];
 }
 
 Cat.prototype.create = function () {
     var player = document.createElement("div");
     var img = document.createElement("img");
-    img.src = "cat_dance.gif";
+    img.src = this.ramdomImg();
     player.appendChild(img);
     player.setAttribute("class", "cat");
     this.catSrc = img;
