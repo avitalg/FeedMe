@@ -1,10 +1,10 @@
-function Shot(elmX, elmY, elmWidth) {
+function Shot(elmX, elmY, elmWidth, player) {
     this.elmWidth = elmWidth / 2;
     this.x = elmX;
-    this.y = elmY;
+    this.y = elmY;  
     this.interval;
+    this.shotCal = player.updateScore.bind(player);
     this.create();
-    this.move();
 }
 
 Shot.prototype.move = function () {
@@ -14,14 +14,20 @@ Shot.prototype.move = function () {
     }
     this.newShot.style.top = this.newShot.offsetTop - 10 + "px";
     this.y = this.newShot.offsetTop - 10;
-    if (this.newShot.offsetTop < 0 || this.checkHit()) {
+    var checkHit = this.checkHit();
+    
+    if (this.newShot.offsetTop < 0 || checkHit) {
         this.destroy();
+    }
+
+    if (checkHit){
+        this.shotCal(5);
     }
 }
 
 Shot.prototype.checkHit = function () {
     return window.cat.getLocation().x - 5 <= this.x && 
-    window.cat.getLocation().x + window.cat.getSize().width >= this.x &&
+    window.cat.getLocation().x + window.cat.getSize().width - 10 >= this.x &&
     window.cat.getLocation().y + window.cat.getSize().height <= this.y+5&&
     window.cat.getLocation().y + window.cat.getSize().height >= this.y-5;
 }

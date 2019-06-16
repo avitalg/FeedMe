@@ -5,10 +5,10 @@ function Person(name) {
 }
 
 Person.prototype = Object.create(Player.prototype);
-Person.prototype.constructure = Person;
+Person.prototype.constructur = Person;
 
 Person.prototype.shot = function () {
-    new Shot(this.x, this.y, this.elm.offsetWidth);
+    new Shot(this.x, this.y, this.elm.offsetWidth, this);
 };
 
 Person.prototype.move = function (direction) {
