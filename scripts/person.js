@@ -1,7 +1,7 @@
 function Person(name) {
     Player.call(this, name);
     this.create();
-    this.locate(innerWidth / 2, innerHeight);
+    this.locate(innerWidth / 2, innerHeight - 100);
     window.addEventListener('keyup',this.handleKey.bind(this), false);
 }
 

@@ -6,7 +6,6 @@ function Cat(name){
 }
 
 Cat.prototype = Object.create(Player.prototype);
-Cat.prototype.constructur = Cat;
 
 Cat.prototype.ramdomImg = function(){
     var imgs = ['imgs/cat_dance.gif'];
