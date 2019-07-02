@@ -6,6 +6,10 @@ function Shot(elmX, elmY, elmWidth, player) {
     this.cat = player.cat;
     this.shotCal = player.updateScore.bind(player);
     this.create();
+   this.animate();
+}
+
+shot.prototype.animate = function(){
     document.body.className = "shoted";
     setTimeout(()=>{
         document.body.className="";
