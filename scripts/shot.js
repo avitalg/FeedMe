@@ -3,8 +3,13 @@ function Shot(elmX, elmY, elmWidth, player) {
     this.x = elmX;
     this.y = elmY;  
     this.interval;
+    this.cat = player.cat;
     this.shotCal = player.updateScore.bind(player);
     this.create();
+    document.body.className = "shoted";
+    setTimeout(()=>{
+        document.body.className="";
+    },1000);
 }
 
 Shot.prototype.move = function () {
@@ -26,10 +31,10 @@ Shot.prototype.move = function () {
 }
 
 Shot.prototype.checkHit = function () {
-    return window.cat.getLocation().x - 5 <= this.x && 
-    window.cat.getLocation().x + window.cat.getSize().width - 10 >= this.x &&
-    window.cat.getLocation().y + window.cat.getSize().height <= this.y+5&&
-    window.cat.getLocation().y + window.cat.getSize().height >= this.y-5;
+    return this.cat.getLocation().x - 5 <= this.x && 
+    this.cat.getLocation().x + this.cat.getSize().width - 10 >= this.x &&
+    this.cat.getLocation().y + this.cat.getSize().height <= this.y+5&&
+    this.cat.getLocation().y + this.cat.getSize().height >= this.y-5;
 }
 
 Shot.prototype.create = function () {
@@ -45,5 +50,4 @@ Shot.prototype.create = function () {
 Shot.prototype.destroy = function(){
     clearInterval(this.interval);
     document.body.removeChild(this.newShot);
-
 }

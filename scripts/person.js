@@ -1,12 +1,12 @@
-function Person(name) {
+function Person(name, cat) {
     Player.call(this, name);
     this.create();
+    this.cat = cat;
     this.locate(innerWidth / 2, innerHeight - 100);
     window.addEventListener('keyup',this.handleKey.bind(this), false);
 }
 
 Person.prototype = Object.create(Player.prototype);
-Person.prototype.constructur = Person;
 
 Person.prototype.shot = function () {
     new Shot(this.x, this.y, this.elm.offsetWidth, this);

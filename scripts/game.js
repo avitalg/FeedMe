@@ -1,6 +1,6 @@
 function init() {
-    window.avital = new Person('avital');
-    window.cat = new Cat('charlie');
+    let cat = new Cat('charlie');
+    let avital = new Person('avital', cat);
 }
 
 
